@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure.Entities.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace Infrastructure.Entities
 {
     [Table("Sales")]
-    public class Sales
+    public class Sales : IIdentity<int>
     {
         [Key]
         public int Id { get; set; }
