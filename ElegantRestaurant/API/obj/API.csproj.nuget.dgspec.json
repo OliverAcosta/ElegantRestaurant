@@ -98,7 +98,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Jusn\\Desktop\\MyWorkSpace\\ElegantRestaurant\\ElegantRestaurant\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Jusn\\Desktop\\MyWorkSpace\\ElegantRestaurant\\ElegantRestaurant\\Domain\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

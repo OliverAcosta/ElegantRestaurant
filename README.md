@@ -1,3 +1,4 @@
 # ElegantRestaurant
 -created Base Solution
--created Insfrastructure proyect
+-created Insfrastructure project
+-created Domain project
