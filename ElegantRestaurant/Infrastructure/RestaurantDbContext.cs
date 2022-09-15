@@ -23,7 +23,7 @@ namespace Infrastructure
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(new AppSettingUtility(PathUtility.GetPathByProcess()).GetDefaultConnectionString());
+                optionsBuilder.UseSqlServer(new AppSettingUtility(PathUtility.GetPathByProcess() + "infrastructure\\").GetDefaultConnectionString());
                 base.OnConfiguring(optionsBuilder);
             }
         }

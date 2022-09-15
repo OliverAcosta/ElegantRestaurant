@@ -37,26 +37,26 @@ namespace ScheduleApi.Controllers.Bases
         {
             return HttpContext.Items["User"] != null;
         }
-        protected int GetUserId() {
-            var user = (AppUser) HttpContext.Items["User"];
-            if(user != null)
-            {
-                return user.Id;
-            }
-            return 1;
-        }
+        //protected int GetUserId() {
+        //    var user = (AppUser) HttpContext.Items["User"];
+        //    if(user != null)
+        //    {
+        //        return user.Id;
+        //    }
+        //    return 1;
+        //}
 
-        protected RequestResult GetUser()
-        {
-            var user = (AppUser)HttpContext.Items["User"];
-            return new RequestResult
-            {
-                Success = user != null,
-                Message = user == null ? "The user is not authenticated" : "The user is authenticated",
-                Data = user
-            };
+        //protected RequestResult GetUser()
+        //{
+        //    var user = (AppUser)HttpContext.Items["User"];
+        //    return new RequestResult
+        //    {
+        //        Success = user != null,
+        //        Message = user == null ? "The user is not authenticated" : "The user is authenticated",
+        //        Data = user
+        //    };
 
-        }
+        //}
 
         protected string GetRol()
         {

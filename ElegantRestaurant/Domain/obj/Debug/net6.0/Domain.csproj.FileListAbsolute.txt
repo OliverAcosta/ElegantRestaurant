@@ -1,0 +1,16 @@
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\bin\Debug\net6.0\Domain.deps.json
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\bin\Debug\net6.0\Domain.dll
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\bin\Debug\net6.0\Domain.pdb
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\Domain.dll
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\refint\Domain.dll
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\Domain.pdb
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\ref\Domain.dll
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\bin\Debug\net6.0\infrastructure\appsettings.json
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\Jusn\Desktop\MyWorkSpace\ElegantRestaurant\ElegantRestaurant\Domain\obj\Debug\net6.0\Domain.csproj.CopyComplete

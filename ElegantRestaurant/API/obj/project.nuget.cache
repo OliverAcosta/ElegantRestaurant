@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ynLrXJ53ycGABVbUjMoXPFNPc/Jl0lO7/EdOPS4roIHMcShscxujX/YtkxydW974FXH0SRf8QMRiM8Aam0UGAA==",
-  "success": false,
+  "dgSpecHash": "80yBYYBMmtgJUBP+bGzS+0g4y3C2EUIaZW8YjknA2zwVA434VSGWYgORrB8qJhc3mAALfH/W+7oYIVBvbfu0vg==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Jusn\\Desktop\\MyWorkSpace\\ElegantRestaurant\\ElegantRestaurant\\API\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jusn\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
+    "C:\\Users\\Jusn\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
+    "C:\\Users\\Jusn\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.2\\fluentvalidation.dependencyinjectionextensions.11.2.2.nupkg.sha512",
     "C:\\Users\\Jusn\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Jusn\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Jusn\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
@@ -61,15 +64,5 @@
     "C:\\Users\\Jusn\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\Jusn\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\Jusn\\Desktop\\MyWorkSpace\\ElegantRestaurant\\ElegantRestaurant\\Domain\\Domain.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\Jusn\\Desktop\\MyWorkSpace\\ElegantRestaurant\\ElegantRestaurant\\Domain\\Domain.csproj",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -1,26 +1,25 @@
-﻿using Infrastructure.Entities.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿
+using Infrastructure.Entities.Base;
+using Infrastructure.Entities.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace Infrastructure.Entities
 {
     [Table("Sales")]
-    public class Sales : IIdentity<int>
+    public class Sales : EntityBase<int>, IState
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
+        
         public int ProductId { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public DateTime SellTime { get; set; }
-        public int StatesId { get; set; }
 
-        public States States { get; set; }
+        [ForeignKey("State")]
+        public int StateId { get; set; }
+
+        [JsonIgnore]
+        public States State { get; set; }
     }
 }

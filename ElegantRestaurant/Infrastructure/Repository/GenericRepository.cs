@@ -1,6 +1,6 @@
-﻿using Domain.Interfaces;
-using Infrastructure.Entities.Base;
+﻿using Infrastructure.Entities.Base;
 using Infrastructure.Entities.Interfaces;
+using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository
 {
-    public class GenericRepository<T> : IAsyncRepository<T> where T : EntityBase<int>
+    public class GenericRepository<T> : IGenericRepository<T> where T : EntityBase<int>
     {
         private readonly RestaurantDbContext db;
         public GenericRepository()
@@ -34,8 +34,11 @@ namespace Infrastructure.Repository
         public async Task<T> Delete(int id)
         {
             var toDelete = await db.Set<T>().Where(model => model.Id == id).FirstOrDefaultAsync();
-            db.Remove(toDelete);
-            await db.SaveChangesAsync();
+            if (toDelete != null)
+            {
+                db.Remove(toDelete);
+                await db.SaveChangesAsync();
+            }
             return toDelete;
         }
 
@@ -57,6 +60,16 @@ namespace Infrastructure.Repository
         public IAsyncEnumerable<T> GetAll(Expression<Func<T, bool>> predicate)
         {
             return db.Set<T>().Where(predicate).AsAsyncEnumerable();
+        }
+
+        public IAsyncEnumerable<T> Pagination(int page, int pageSize)
+        {
+            return db.Set<T>().Skip(page * pageSize).Take(pageSize).AsAsyncEnumerable();
+        }
+
+        public IAsyncEnumerable<T> Pagination(int page, int pageSize, Expression<Func<T, bool>> predicate)
+        {
+            return db.Set<T>().Where(predicate).Skip(page * pageSize).Take(pageSize).AsAsyncEnumerable();
         }
     }
 }
