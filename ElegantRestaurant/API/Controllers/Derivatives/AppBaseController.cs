@@ -50,12 +50,6 @@ namespace ScheduleApi.Controllers.Derivatives
                         }
                     });
                 }
-                if (entity is IState e) {
-                    if (e.StateId == 0)
-                    {
-                        ((IState)entity).StateId = 1;
-                    }
-                }
                 var model = await repository.Add(entity);
                 return Ok(new RequestResult
                 {
@@ -69,7 +63,74 @@ namespace ScheduleApi.Controllers.Derivatives
             }
         }
 
-       
+        [HttpPut("update")]
+        public async Task<ActionResult<RequestResult>> Update(T entity)
+        {
+            try
+            {
+                var validation = await validator.ValidateAsync(entity);
+
+                if (!validation.IsValid)
+                {
+                    return BadRequest(new RequestResult
+                    {
+                        Errors = new ErrorResult
+                        {
+                            Details = validation.Errors.Select(e => new
+                            {
+                                e.PropertyName,
+                                e.ErrorMessage
+                            }).ToArray()
+                        }
+                    });
+                }
+
+                
+                var model = await repository.Update(entity);
+
+                return Ok(new RequestResult
+                {
+                    Success = true,
+                    Data = model,
+                    Message = "Updated completed!"
+                });
+            }
+            catch (Exception ex)
+            {
+                return GetBadRequest(ex);
+            }
+        }
+
+
+
+        [HttpDelete("delete/{id}")]
+        public virtual async Task<ActionResult<RequestResult>> Delete(int id)
+        {
+            try
+            {
+                var entity = await repository.Delete(id);
+                if (entity != null)
+                {
+                    return Ok(new RequestResult
+                    {
+                        Success = true,
+                        Data = entity,
+                        Message = "Entity deleted"
+                    });
+                }
+                return NotFound(new RequestResult
+                {
+                    Success = false,
+                    Message = "entity was not found"
+                });
+            }
+            catch (Exception ex)
+            {
+                return GetBadRequest(ex);
+            }
+        }
+
+
         [HttpGet("get/{id}")]
         public async Task<ActionResult<RequestResult>> Get(int id)
         {
@@ -132,54 +193,29 @@ namespace ScheduleApi.Controllers.Derivatives
             }
         }
 
-        [HttpPut("update")]
-        public async Task<ActionResult<RequestResult>> Update(T model)
+        [HttpGet("State/{Id}/{StateId}")]
+        public async Task<ActionResult<RequestResult>> State(int Id, int StateId)
         {
             try
             {
-                //if (model is IUser)
-                //{
-                //    ((IUser)model).UserId = GetUserId();
-                //}
-                
-                var entity = await repository.Update(model);
-               
+                var entity = repository.ChangeState(Id, StateId);
+                if(entity == null)
+                {
+                    return BadRequest(new RequestResult
+                    {
+                        Message = "Entity was not found",
+                        Errors = new ErrorResult
+                        {
+                            Message = "The entity was not found"
+                        }
+                    });
+                }
                 return Ok(new RequestResult
                 {
                     Success = true,
                     Data = entity,
-                    Message = "Updated completed!"
+                    Message = "Entity found"
                 });
-            }
-            catch (Exception ex)
-            {
-                return GetBadRequest(ex);
-            }
-        }
-
-
-
-        [HttpDelete("delete/{id}")]
-        public virtual async Task<ActionResult<RequestResult>> Delete(int id)
-        {
-            try
-            {
-                var entity = await repository.Delete(id);
-                if (entity != null)
-                {
-                    return Ok(new RequestResult
-                    {
-                        Success = true,
-                        Data = entity,
-                        Message = "Entity deleted"
-                    });
-                }
-                return NotFound(new RequestResult
-                {
-                    Success = false,
-                    Message = "entity was not found"
-                });
-
 
             }
             catch (Exception ex)
@@ -187,6 +223,5 @@ namespace ScheduleApi.Controllers.Derivatives
                 return GetBadRequest(ex);
             }
         }
-
     }
 }

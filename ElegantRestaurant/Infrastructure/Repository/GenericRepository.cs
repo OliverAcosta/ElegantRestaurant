@@ -20,6 +20,13 @@ namespace Infrastructure.Repository
         }
         public async Task<T> Add(T entity)
         {
+            if (entity is IState e)
+            {
+                if (e.StateId == 0)
+                {
+                    ((IState)entity).StateId = 1;
+                }
+            }
             await db.AddAsync(entity);
             await db.SaveChangesAsync();
             return entity;
@@ -27,6 +34,13 @@ namespace Infrastructure.Repository
 
         public async Task<T> Update(T entity)
         {
+            if (entity is IState e)
+            {
+                if (e.StateId == 0)
+                {
+                    ((IState)entity).StateId = 1;
+                }
+            }
             db.Set<T>().Update(entity);
             await db.SaveChangesAsync();
             return entity;
@@ -70,6 +84,17 @@ namespace Infrastructure.Repository
         public IAsyncEnumerable<T> Pagination(int page, int pageSize, Expression<Func<T, bool>> predicate)
         {
             return db.Set<T>().Where(predicate).Skip(page * pageSize).Take(pageSize).AsAsyncEnumerable();
+        }
+
+        public async Task<T> ChangeState(int Id, int StateId)
+        {
+            var entity = await db.Set<T>().FirstOrDefaultAsync(model => model.Id == Id);
+            if (entity == null) return default(T);
+            if (entity is IState e)
+            {
+               ((IState)entity).StateId = StateId;
+            }
+            return entity;
         }
     }
 }
